@@ -1,11 +1,12 @@
 name: Deploy
 
 on:
-  workflow_dispatch
+  # workflow_dispatch
+  push
 env:
   SERVER_HOST: 51.38.73.150
   SERVER_USER: root
-  SERVER_PATH: /opt/bot-weather-git
+  SERVER_PATH: /opt/test_git
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,11 +23,9 @@ jobs:
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       
       # Deploy
-      #- run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
+      - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
+      - run: python3 hello.py
       
-      - name: Deploy to server      
-        run: |
-           ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "cd /opt/bot-weather-git && docker stop bot-weather-git_app_1 && docker-compose up -d"
-
+       
   
- 
+  
