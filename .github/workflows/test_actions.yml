@@ -24,11 +24,9 @@ jobs:
       # Deploy
       #- run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
       
-      - name: Deploy to server
+      - name: Deploy to server      
         run: |
-          ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "ls -la ${{ env.SERVER_PATH }}"
-          cd /opt/bot-weather-git
-          mkdir katalog
-       
+         ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "cd /opt/bot-weather-git && mkdir katalog"
+
   
-  
+ 
