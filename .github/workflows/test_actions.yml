@@ -27,7 +27,7 @@ jobs:
       - name: Deploy to server
         run: |
           ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "ls -la ${{ env.SERVER_PATH }}"
-          cd ${{ env.SERVER_PATH }}
+          cd /opt/bot-weather-git
           mkdir katalog
        
   
