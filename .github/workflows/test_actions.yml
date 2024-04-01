@@ -26,7 +26,7 @@ jobs:
       
       - name: Deploy to server      
         run: |
-           ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "cd /opt/bot-weather-git && docker stop bot-weather-git_app_1"
+           ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "cd /opt/bot-weather-git && docker stop bot-weather-git_app_1 && docker-compose up -d"
 
   
  
