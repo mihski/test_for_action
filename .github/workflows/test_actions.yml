@@ -23,11 +23,11 @@ jobs:
       
       # Deploy
       #- run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
-      - run: 
-         cd ${{ env.SERVER_PATH }}
-      - run:    
-         mkdir katalog
       
+      - name: Deploy to server
+        run: |
+          cd ${{ env.SERVER_PATH }}
+          mkdir katalog
        
   
   
