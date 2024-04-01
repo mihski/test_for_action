@@ -22,10 +22,11 @@ jobs:
       - name: Generate auth hosts
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       
-      # Deploy
-      - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
-      - run: python3 hello.py
-      
-       
+      - name: Deploy to server      
+        run: |
+           ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "cd /opt/bot-weather-git && docker stop bot-weather-git_app_1 && docker-compose up -d"
+  
+ 
+
   
   
