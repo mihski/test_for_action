@@ -23,7 +23,9 @@ jobs:
       
       # Deploy
       - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
-      - run: python3 hello.py
+      - run: :|
+          cd /opt/bot-weather-git/
+          docker-composeuo -d
       
        
   
