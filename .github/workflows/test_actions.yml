@@ -24,7 +24,7 @@ jobs:
       # Deploy
       - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
       - run: :|
-          cd /opt/bot-weather-git/
+          cd /opt/bot-weather-git
           docker-compose up -d
       
        
