@@ -5,7 +5,7 @@ on:
 env:
   SERVER_HOST: 51.38.73.150
   SERVER_USER: root
-  SERVER_PATH: /opt/test_git
+  SERVER_PATH: /opt/bot-weather-git
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,9 +22,9 @@ jobs:
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       
       # Deploy
-      - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
-      - run: 
-          cd /opt/bot-weather-git
+      #- run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
+      #- run: 
+      #   cd ${{ env.SERVER_HOST }}
       - run:    
           docker-compose up -d
       
