@@ -24,9 +24,9 @@ jobs:
       # Deploy
       #- run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}    
       - run: 
+         cd 
+      - run: ${{ env.SERVER_PATH }}   
          mkdir katalog
-    #  - run:    
-    #      docker-compose up -d
       
        
   
